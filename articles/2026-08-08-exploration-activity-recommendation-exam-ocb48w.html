@@ -40,7 +40,7 @@
 <h1 class="article-title">夏休み探究活動で推薦入試に必要な実績を作る方法｜高校生向けガイド</h1>
 <p class="article-meta">2026-08-08 ・ 探究活動、推薦入試、高校生</p>
 <img src="../images/2026-08-08-exploration-activity-recommendation-exam-ocb48w.png" alt="夏休み探究活動で推薦入試に必要な実績を作る方法｜高校生向けガイド" class="article-hero">
-<a class="promo-cta promo-cta-compact" href="https://strix-sougougata.com/" target="_blank" rel="noopener" onclick="gtag&&gtag('event','cta_click',{location:'article_top'})">
+<a id="cta-top" class="promo-cta promo-cta-compact" href="https://strix-sougougata.com/" target="_blank" rel="noopener" aria-label="推薦入試対策について、STRIXの無料相談に申し込む" onclick="gtag&&gtag('event','cta_click',{location:'article_top'})">
 <div class="promo-cta-stripes"></div>
 <div class="promo-cta-body">
 <span class="promo-cta-badge">無料相談受付中</span>
@@ -123,7 +123,7 @@
 <a class="related-card" href="2026-08-16-9-gceakt.html"><div class="related-thumb-wrap"><img src="../images/2026-08-16-9-gceakt.png" class="related-thumb" alt=""></div><span class="related-card-title">推薦入試は9月スタート。親が知るべき費用・スケジュール・願書チェック完全ガイド</span></a>
 </div>
 </div>
-<a class="promo-cta" href="https://strix-sougougata.com/muryosoudan" target="_blank" rel="noopener" onclick="gtag&&gtag('event','cta_click',{location:'article_bottom'})">
+<a id="cta-bottom" class="promo-cta" href="https://strix-sougougata.com/muryosoudan" target="_blank" rel="noopener" aria-label="推薦入試対策・志望理由書のマンツーマン指導、STRIXの無料相談に申し込む" onclick="gtag&&gtag('event','cta_click',{location:'article_bottom'})">
 <div class="promo-cta-stripes"></div>
 <div class="promo-cta-body">
 <span class="promo-cta-badge">無料相談受付中</span>
@@ -135,6 +135,36 @@
 <a href="../index.html" class="back-link">← 記事一覧に戻る</a>
 </article>
 </main>
+<div id="cta-sticky" class="promo-cta-sticky" hidden>
+<a href="https://strix-sougougata.com/muryosoudan" target="_blank" rel="noopener" aria-label="STRIXの無料相談に申し込む" onclick="gtag&&gtag('event','cta_click',{location:'sticky_bar'})">
+<span class="promo-cta-sticky-badge">無料相談受付中</span>
+<span class="promo-cta-sticky-text">STRIXに無料相談する</span>
+<span class="promo-cta-sticky-arrow">→</span>
+</a>
+<button type="button" class="promo-cta-sticky-close" aria-label="この表示を閉じる" onclick="document.getElementById('cta-sticky').hidden=true;window.__ctaStickyDismissed=true;">×</button>
+</div>
+<script>
+(function(){
+  var top = document.getElementById('cta-top');
+  var bottom = document.getElementById('cta-bottom');
+  var sticky = document.getElementById('cta-sticky');
+  if (!top || !bottom || !sticky || !('IntersectionObserver' in window)) return;
+  var topVisible = true, bottomVisible = false;
+  function update() {
+    if (window.__ctaStickyDismissed) return;
+    sticky.hidden = topVisible || bottomVisible;
+  }
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.target === top) topVisible = entry.isIntersecting;
+      if (entry.target === bottom) bottomVisible = entry.isIntersecting;
+    });
+    update();
+  }, { threshold: 0 });
+  io.observe(top);
+  io.observe(bottom);
+})();
+</script>
 <footer class="site-footer">STRIX</footer>
 </body>
 </html>
