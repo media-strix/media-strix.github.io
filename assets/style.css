@@ -269,6 +269,62 @@ h1.article-title {
 .promo-cta.promo-cta-compact .promo-cta-title { font-size: 0.98rem; margin-bottom: 2px; }
 .promo-cta.promo-cta-compact .promo-cta-sub { display: none; }
 .promo-cta.promo-cta-compact .promo-cta-button { padding: 11px 20px; font-size: 0.84rem; }
+/* 記事上部・末尾のCTAが画面外にあるとき、常に無料相談への導線を確保する追従バー。
+   2026-08-30週次レポートの提案(CTA接触機会の増加)に基づき追加 */
+.promo-cta-sticky {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #0b2b55, #081f3d);
+  box-shadow: 0 -8px 24px rgba(11,43,85,0.28);
+  padding: 12px calc(16px + env(safe-area-inset-right)) calc(12px + env(safe-area-inset-bottom)) calc(16px + env(safe-area-inset-left));
+}
+.promo-cta-sticky[hidden] { display: none; }
+.promo-cta-sticky a {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.promo-cta-sticky-badge {
+  flex-shrink: 0;
+  background: #ec6b98;
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.promo-cta-sticky-text {
+  flex-shrink: 1;
+  min-width: 0;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.88rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.promo-cta-sticky-arrow { flex-shrink: 0; color: #ec6b98; font-size: 1.05rem; }
+.promo-cta-sticky-close {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  color: #a9bdd6;
+  font-size: 1.2rem;
+  line-height: 1;
+  padding: 6px;
+  cursor: pointer;
+}
+.promo-cta-sticky-close:hover { color: #fff; }
 .back-link {
   display: inline-block;
   margin-top: 40px;
