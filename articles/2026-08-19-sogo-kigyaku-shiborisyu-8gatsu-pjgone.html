@@ -40,7 +40,7 @@
 <h1 class="article-title">総合型選抜、9月出願直前なのに「志望理由書がまだ完成していない」生徒が落ちる理由</h1>
 <p class="article-meta">2026-08-19 ・ 総合型選抜、志望理由書、8月準備</p>
 <img src="../images/2026-08-19-sogo-kigyaku-shiborisyu-8gatsu-pjgone.png" alt="総合型選抜、9月出願直前なのに「志望理由書がまだ完成していない」生徒が落ちる理由" class="article-hero">
-<a class="promo-cta promo-cta-compact" href="https://strix-sougougata.com/" target="_blank" rel="noopener" onclick="gtag&&gtag('event','cta_click',{location:'article_top'})">
+<a id="cta-top" class="promo-cta promo-cta-compact" href="https://strix-sougougata.com/" target="_blank" rel="noopener" aria-label="推薦入試対策について、STRIXの無料相談に申し込む" onclick="gtag&&gtag('event','cta_click',{location:'article_top'})">
 <div class="promo-cta-stripes"></div>
 <div class="promo-cta-body">
 <span class="promo-cta-badge">無料相談受付中</span>
@@ -143,10 +143,10 @@
 <div class="related-grid">
 <a class="related-card" href="2026-08-15-gakujutsu-tankyu-2026-aoyusen-r3nhsi.html"><div class="related-thumb-wrap"><img src="../images/2026-08-15-gakujutsu-tankyu-2026-aoyusen-r3nhsi.png" class="related-thumb" alt=""></div><span class="related-card-title">学術分野×探究で差がつく｜理系・文系の探究が2026年度総合型選抜で評価される理由</span></a>
 <a class="related-card" href="2026-08-11-jiko-suisensho-konan-norikoshi-1s9k4o.html"><div class="related-thumb-wrap"><img src="../images/2026-08-11-jiko-suisensho-konan-norikoshi-1s9k4o.png" class="related-thumb" alt=""></div><span class="related-card-title">合格者は「困難の乗り越え方」を書いている。自己推薦書で他の受験生に差がつく理由</span></a>
-<a class="related-card" href="2026-08-22-2027-kaigi-hisshuka-colhhu.html"><div class="related-thumb-wrap"><img src="../images/2026-08-22-2027-kaigi-hisshuka-colhhu.png" class="related-thumb" alt=""></div><span class="related-card-title">【2028年度入試が全く変わる】推薦・総合型選抜で面接が「完全必須化」、高2からの準備が間に合わない</span></a>
+<a class="related-card" href="2026-08-30-sougou-shimbun-3-checkpoint-zdq2lm.html"><div class="related-thumb-wrap"><img src="../images/2026-08-30-sougou-shimbun-3-checkpoint-zdq2lm.png" class="related-thumb" alt=""></div><span class="related-card-title">9月1日出願開始まであと2日！総合型選抜の志望理由書で面接官が重視する3つのチェックポイント</span></a>
 </div>
 </div>
-<a class="promo-cta" href="https://strix-sougougata.com/muryosoudan" target="_blank" rel="noopener" onclick="gtag&&gtag('event','cta_click',{location:'article_bottom'})">
+<a id="cta-bottom" class="promo-cta" href="https://strix-sougougata.com/muryosoudan" target="_blank" rel="noopener" aria-label="推薦入試対策・志望理由書のマンツーマン指導、STRIXの無料相談に申し込む" onclick="gtag&&gtag('event','cta_click',{location:'article_bottom'})">
 <div class="promo-cta-stripes"></div>
 <div class="promo-cta-body">
 <span class="promo-cta-badge">無料相談受付中</span>
@@ -158,6 +158,36 @@
 <a href="../index.html" class="back-link">← 記事一覧に戻る</a>
 </article>
 </main>
+<div id="cta-sticky" class="promo-cta-sticky" hidden>
+<a href="https://strix-sougougata.com/muryosoudan" target="_blank" rel="noopener" aria-label="STRIXの無料相談に申し込む" onclick="gtag&&gtag('event','cta_click',{location:'sticky_bar'})">
+<span class="promo-cta-sticky-badge">無料相談受付中</span>
+<span class="promo-cta-sticky-text">STRIXに無料相談する</span>
+<span class="promo-cta-sticky-arrow">→</span>
+</a>
+<button type="button" class="promo-cta-sticky-close" aria-label="この表示を閉じる" onclick="document.getElementById('cta-sticky').hidden=true;window.__ctaStickyDismissed=true;">×</button>
+</div>
+<script>
+(function(){
+  var top = document.getElementById('cta-top');
+  var bottom = document.getElementById('cta-bottom');
+  var sticky = document.getElementById('cta-sticky');
+  if (!top || !bottom || !sticky || !('IntersectionObserver' in window)) return;
+  var topVisible = true, bottomVisible = false;
+  function update() {
+    if (window.__ctaStickyDismissed) return;
+    sticky.hidden = topVisible || bottomVisible;
+  }
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.target === top) topVisible = entry.isIntersecting;
+      if (entry.target === bottom) bottomVisible = entry.isIntersecting;
+    });
+    update();
+  }, { threshold: 0 });
+  io.observe(top);
+  io.observe(bottom);
+})();
+</script>
 <footer class="site-footer">STRIX</footer>
 </body>
 </html>
