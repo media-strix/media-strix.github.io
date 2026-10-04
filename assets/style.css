@@ -147,6 +147,19 @@ h1.article-title {
   display: block;
 }
 .article-body { font-size: 1.02rem; }
+.article-body h2 { scroll-margin-top: 16px; }
+.toc {
+  background: #f4f2ec;
+  border-left: 4px solid #ec6b98;
+  border-radius: 8px;
+  padding: 18px 22px 14px;
+  margin: 28px 0 8px;
+}
+.toc-title { font-weight: 700; color: var(--navy); margin: 0 0 6px; }
+.toc ol { margin: 0; padding-left: 1.4em; }
+.toc li { margin: 0.35em 0; font-size: 0.95rem; }
+.toc a { color: var(--navy); text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
 .article-body h2 {
   font-family: 'Zen Old Mincho', serif;
   font-size: 1.4rem;
